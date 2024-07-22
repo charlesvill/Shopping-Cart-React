@@ -1,37 +1,29 @@
 import { useState, useEffect } from "react"
-import { mapFeatData } from "../utils";
+import { mapFeatData, fetchData } from "../utils";
 import Carousel from "../imgcarousel";
 
 const featUrl = `https://api.rawg.io/api/games?key=${import.meta.env.VITE_API_KEY}&dates=2023-01-01,2024-07-20&ordering=-added&page_size=7`
+const topUrl = `https://api.rawg.io/api/games?key=${import.meta.env.VITE_API_KEY}&ordering=-added&page_size=12`;
 
 const HomePage = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-    fetch(featUrl, { mode: "cors" })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((response) => {
-        setData(response.results);
-        console.dir(response.results);
-      })
-      .catch((error) => console.error('Fetch error:', error))
-      .finally(() => {
-        setLoading(false);
-        console.dir(data);
-      });
+    async function fetchCarouselData() {
+      setLoading(true);
+      const fetchAttempt = await fetchData(featUrl);
+      setData(fetchAttempt.results);
+      setLoading(false);
+    }
+    try {
+      fetchCarouselData();
+    } catch (error) {
+      throw new Error(error);
+    } 
   }, []);
 
-
-
   return (
-
     <div>
       {
         loading ? <p>Loading....</p>
