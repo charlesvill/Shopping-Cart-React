@@ -26,7 +26,7 @@ const HomePage = () => {
         setLoading(false);
         console.dir(data);
       });
-  }, []); // Make sure to include featUrl as a dependency if it can change
+  }, []);
 
 
 

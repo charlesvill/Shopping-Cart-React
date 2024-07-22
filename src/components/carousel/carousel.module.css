@@ -1,0 +1,13 @@
+.carouselItem{
+  max-width: 800px;
+  height: auto;
+}
+.carouselItem.v {
+  display: block;
+
+}
+
+.carouselItem.hidden {
+  display: none;
+}
+
