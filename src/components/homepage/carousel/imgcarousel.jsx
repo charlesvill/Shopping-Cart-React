@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import styles from './carousel/carousel.module.css'
+import styles from './carousel.module.css';
 
 
 export default function Carousel({ data }) {
@@ -31,7 +31,7 @@ export default function Carousel({ data }) {
   }
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <div className="frame">
         <div className="slider">
           {carouselItems}
@@ -50,7 +50,6 @@ export default function Carousel({ data }) {
 
 Carousel.propTypes = {
   data: PropTypes.array,
-
 };
 
 

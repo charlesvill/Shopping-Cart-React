@@ -25,5 +25,11 @@ async function fetchData(url) {
   }
 }
 
-export { mapFeatData, fetchData };
+function priceGenerator(gameId, rating) {
+  const base = (gameId % 9) + 1; 
+
+  return base * rating;
+}
+
+export { mapFeatData, fetchData, priceGenerator };
 

@@ -1,3 +1,6 @@
+.container{
+  composes: homeCont from "../homepage.module.css";
+}
 .carouselItem{
   max-width: 800px;
   height: auto;
