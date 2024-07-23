@@ -1,13 +1,19 @@
 .game{
+  max-width:250px;
   display: flex;
   flex-direction: column;
+  margin: .5em;
+  border: 1px solid black;
 }
 .image{
   max-width: 250px;
   height: auto;
 }
-.price {
+.star {
   color: red;
+}
+.price {
+  color: lightsalmon;
 }
 
 .container {

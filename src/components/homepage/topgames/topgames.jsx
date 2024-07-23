@@ -12,17 +12,20 @@ export default function TopGames({ data }) {
           alt={element.slug}
           key={element.id}
         />
-        <p>{element.rating}</p>
+        <p><span className={styles.star}>★</span>{element.rating}</p>
         <div>
           <h3>{element.name}</h3>
-          <p>${priceGenerator(element.id, element.rating)}</p>
+          <p className={styles.price}>${priceGenerator(element.id, element.rating)}</p>
         </div>
       </div>
   );
   return (
-    <div className={styles.container}>
-      {gamesList}
-    </div>
+    <>
+      <h2>Must Play Games</h2>
+      <div className={styles.container}>
+        {gamesList}
+      </div>
+    </>
   );
 }
 
