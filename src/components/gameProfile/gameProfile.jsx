@@ -1,16 +1,18 @@
-import { useParams } from "react-router-dom";
+import { useParams, useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchData, priceGenerator, formatDollars } from "../utils";
 
 
+
 export default function GameProfile() {
   const { slug } = useParams();
+  const [cart, setCart] = useOutletContext();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const url = `https://api.rawg.io/api/games/${slug}?key=${import.meta.env.VITE_API_KEY}`
   let price = 0;
-  
+
   useEffect(() => {
     async function dataFetch() {
       setLoading(true);
@@ -25,12 +27,33 @@ export default function GameProfile() {
       throw new Error(error)
     }
   }, []);
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
 
-  function handleAdd(){
+
+
+  function handleAdd() {
+    const found = (arr, value) => {
+      return arr.some(
+        element => value === element.id
+      );
+    }
+
+    if (!found(cart, data.id)) {
+      setCart(cart => [...cart, {
+        name: data.name,
+        slug: data.slug,
+        id: data.id,
+        price: priceGenerator(data.id, data.rating),
+      }]);
+      console.log(cart);
+    } else {
+      console.log("cart item found, skipping add!");
+    }
     // state being set in the parent component, in app? 
     // create obj with name,slug,id, price sent to appropriate state
   }
-
 
   return (
     <>
