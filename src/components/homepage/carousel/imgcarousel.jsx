@@ -1,22 +1,25 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './carousel.module.css';
+import { Link } from 'react-router-dom';
 
 
 export default function Carousel({ data }) {
   const [position, setPosition] = useState(0);
   const carouselItems = data.map(
     (element, index) =>
-      <img
-        className={
-          index === position ?
-            `${styles.carouselItem} ${styles.v}` :
-            `${styles.carouselItem} ${styles.hidden}` 
-        }
-        src={element.background_image}
-        alt={element.slug}
-        key={element.id}
-      />
+      <Link to={`/games/${element.slug}`} key={element.id}>
+        <img
+          className={
+            index === position ?
+              `${styles.carouselItem} ${styles.v}` :
+              `${styles.carouselItem} ${styles.hidden}`
+          }
+          src={element.background_image}
+          alt={element.slug}
+          
+        />
+      </Link>
   );
   function handlePrev() {
     position === 0 ?

@@ -26,10 +26,17 @@ async function fetchData(url) {
 }
 
 function priceGenerator(gameId, rating) {
-  const base = (gameId % 9) + 1; 
-
+  const base = ((gameId % 9) + 1.5); 
   return base * rating;
 }
 
-export { mapFeatData, fetchData, priceGenerator };
+function formatDollars(number){
+  let USDollar = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+  return USDollar.format(number);
+}
+
+export { mapFeatData, fetchData, priceGenerator, formatDollars };
 
