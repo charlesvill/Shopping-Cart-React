@@ -3,6 +3,7 @@ import ErrorPage from "./ErrorPage";
 import HomePage from "./components/homepage/HomePage";
 import SearchResult from "./components/searchresult/SearchResult"
 import ShoppingCart from "./components/cart/ShoppingCart";
+import GameProfile from "./components/gameProfile/gameProfile";
 
 const routes = [
   {
@@ -21,6 +22,10 @@ const routes = [
         path: "cart", 
         element: <ShoppingCart />,
       }, 
+      {
+        path: "games/:slug",
+        element: <GameProfile />,
+      },
     ],
   }, 
 ];
