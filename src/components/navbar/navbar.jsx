@@ -24,7 +24,7 @@ const NavBar = () => {
         </form>
       </div>
       <div className={"cartCont"}>
-        shopping cart
+        <Link to={"/cart"}>shopping cart</Link>
       </div>
     </nav>
   );

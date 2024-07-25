@@ -2,7 +2,7 @@ import App from "./App";
 import ErrorPage from "./ErrorPage";
 import HomePage from "./components/homepage/HomePage";
 import SearchResult from "./components/searchresult/SearchResult"
-import ShoppingCart from "./components/cart/ShoppingCart";
+import ShoppingCart from "./components/shopping-cart/cart";
 import GameProfile from "./components/gameProfile/gameProfile";
 
 const routes = [

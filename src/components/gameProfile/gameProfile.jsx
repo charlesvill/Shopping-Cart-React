@@ -11,7 +11,6 @@ export default function GameProfile() {
   const [loading, setLoading] = useState(true);
 
   const url = `https://api.rawg.io/api/games/${slug}?key=${import.meta.env.VITE_API_KEY}`
-  let price = 0;
 
   useEffect(() => {
     async function dataFetch() {
@@ -27,11 +26,6 @@ export default function GameProfile() {
       throw new Error(error)
     }
   }, []);
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
-
-
 
   function handleAdd() {
     const found = (arr, value) => {
@@ -47,12 +41,9 @@ export default function GameProfile() {
         id: data.id,
         price: priceGenerator(data.id, data.rating),
       }]);
-      console.log(cart);
     } else {
       console.log("cart item found, skipping add!");
     }
-    // state being set in the parent component, in app? 
-    // create obj with name,slug,id, price sent to appropriate state
   }
 
   return (

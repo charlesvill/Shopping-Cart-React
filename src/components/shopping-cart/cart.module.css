@@ -1,0 +1,8 @@
+.cartItem {
+  font-weight: bold;
+}
+
+.cartCont {
+  padding: 1em;
+  list-style-type: none;
+}
