@@ -4,6 +4,7 @@ import styles from "./cart.module.css";
 
 export default function ShoppingCart() {
   const [cart, setCart] = useOutletContext();
+  const total = cart.reduce((acc, current) => acc + current.price, 0);
 
   function handleRemove(id) {
     setCart((cart) => {
@@ -33,7 +34,7 @@ export default function ShoppingCart() {
       </ul>
       <section>
         <h3>Total: </h3>
-        <span></span>
+        <span>{formatDollars(total)}</span>
       </section>
 
       <Link to={"/"}>Back to home</Link>
