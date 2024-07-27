@@ -26,11 +26,11 @@ async function fetchData(url) {
 }
 
 function priceGenerator(gameId, rating) {
-  const base = ((gameId % 9) + 1.5); 
+  const base = ((gameId % 9) + 1.5);
   return base * rating;
 }
 
-function formatDollars(number){
+function formatDollars(number) {
   let USDollar = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -38,5 +38,25 @@ function formatDollars(number){
   return USDollar.format(number);
 }
 
-export { mapFeatData, fetchData, priceGenerator, formatDollars };
+function formatString(string) {
+  const lower = string.toLowerCase();
+  const arr = lower.split("");
+  return arr.reduce((acc, value) => {
+    if (
+      value !== " " &&
+      value !== "," &&
+      value !== "'" &&
+      value !== "/" &&
+      value !== "?" &&
+      value !== "&" &&
+      value !== "#" &&
+      value !== "." 
+    ) {
+      return acc + value;
+    }
+    return acc;
+  }, "");
+}
+
+export { mapFeatData, fetchData, priceGenerator, formatDollars, formatString };
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./navbar.module.css";
+import { formatString } from "../utils";
 
 const tempFn = (e) => {
   e.preventDefault();
@@ -13,7 +14,7 @@ const NavBar = () => {
   const [query, setQuery] = useState(null);
 
   function handleInput(e) {
-    setQuery(e.target.value);
+    setQuery(formatString(e.target.value));
   }
 
   function SubSearchResult({ data }) {
@@ -25,6 +26,7 @@ const NavBar = () => {
       </>
     )
   }
+
 
   return (
     <nav className={styles.nav}>
@@ -45,7 +47,7 @@ const NavBar = () => {
             onChange={handleInput}
           />
         </form>
-        {query && <SubSearchResult data={query}/>}
+        {query && <SubSearchResult data={query} />}
       </div>
       <div className={"cartCont"}>
         <Link to={"/cart"}>shopping cart</Link>
