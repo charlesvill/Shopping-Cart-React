@@ -5,13 +5,11 @@
 }
 
 .searchCont {
-  position: relative
+  position: relative;
+  display: flex;
 }
 
-.resultBox {
-  width: 100%;
-  position: absolute;
-  background-color: lightgrey;
-  border: 1px solid black;
-  border-radius: 5px;
+.closeBtn {
+  font-size: 1em;
+  margin: 0 auto;
 }

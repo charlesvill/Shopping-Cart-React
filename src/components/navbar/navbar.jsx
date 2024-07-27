@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./navbar.module.css";
-import { formatString } from "../utils";
+import SubSearchResult from "./subsearchbox/subsearch";
 
 const tempFn = (e) => {
   e.preventDefault();
@@ -11,22 +11,17 @@ const tempFn = (e) => {
 
 
 const NavBar = () => {
-  const [query, setQuery] = useState(null);
+  const [query, setQuery] = useState("");
+  const [show, setShow] = useState(false);
 
   function handleInput(e) {
-    setQuery(formatString(e.target.value));
+    setShow(true);
+    setQuery(e.target.value);
   }
-
-  function SubSearchResult({ data }) {
-    return (
-      <>
-        <div className={styles.resultBox}>
-          <p>{data}</p>
-        </div>
-      </>
-    )
+  function hideResults() {
+    console.log("should be hidden rn");
+    setShow(false);
   }
-
 
   return (
     <nav className={styles.nav}>
@@ -47,7 +42,15 @@ const NavBar = () => {
             onChange={handleInput}
           />
         </form>
-        {query && <SubSearchResult data={query} />}
+        {show && (
+          <>
+            <SubSearchResult query={query} />
+            <button 
+              onClick={hideResults}
+              className={styles.closeBtn}
+            >X</button>
+          </>
+        )}
       </div>
       <div className={"cartCont"}>
         <Link to={"/cart"}>shopping cart</Link>
