@@ -16,11 +16,21 @@ export default function ShoppingCart() {
     (element) => {
       return (
         <li className={styles.cartItem} key={element.id}>
-          <div>
-            <span>{element.name}</span>
-            <span>{formatDollars(element.price)}</span>
+          <img
+            src={element.image}
+            alt={element.slug}
+            className={styles.cartImg}
+          />
+          <div className={styles.sectionTwo}>
+            <div>
+              <span>{element.name}</span>
+              <span>{formatDollars(element.price)}</span>
+            </div>
+            <button
+              onClick={() => handleRemove(element.id)}
+              className={styles.btn}
+            >Remove</button>
           </div>
-          <button onClick={() => handleRemove(element.id)}>Remove</button>
         </li>
       )
     }
@@ -28,16 +38,24 @@ export default function ShoppingCart() {
 
   return (
     <>
-      <h3>Welcome from the shopping cart!</h3>
-      <ul className={styles.cartCont}>
-        {cartList}
-      </ul>
-      <section>
-        <h3>Total: </h3>
-        <span>{formatDollars(total)}</span>
-      </section>
-
-      <Link to={"/"}>Back to home</Link>
+      <h3>View your cart</h3>
+      {cart.length === 0 ? (
+        <div>
+          <h5>You havent added any games yet!</h5>
+          <Link to={"/"}>Click here to find your next adventure!</Link>
+        </div>
+      ) : (
+        <div>
+          <ul className={styles.cartCont}>
+            {cartList}
+          </ul>
+          <section>
+            <h3>Total: </h3>
+            <span>{formatDollars(total)}</span>
+          </section>
+          <Link to={"/"}>Back to home</Link>
+        </div>
+      )}
     </>
   )
 }

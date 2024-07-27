@@ -1,8 +1,26 @@
 .cartItem {
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  margin: 1em;
+}
+
+.cartImg{
+  max-width: 100px;
+  height: auto;
 }
 
 .cartCont {
   padding: 1em;
   list-style-type: none;
+}
+
+.sectionTwo{
+  display: flex;
+  flex-direction: column;
+}
+
+.btn{
+  margin: 0 auto;
+  font-size: .8em;
 }

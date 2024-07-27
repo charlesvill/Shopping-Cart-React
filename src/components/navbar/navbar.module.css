@@ -3,3 +3,15 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
+.searchCont {
+  position: relative
+}
+
+.resultBox {
+  width: 100%;
+  position: absolute;
+  background-color: lightgrey;
+  border: 1px solid black;
+  border-radius: 5px;
+}

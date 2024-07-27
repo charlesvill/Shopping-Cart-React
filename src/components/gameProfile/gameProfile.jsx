@@ -37,6 +37,7 @@ export default function GameProfile() {
     if (!found(cart, data.id)) {
       setCart(cart => [...cart, {
         name: data.name,
+        image: data.background_image,
         slug: data.slug,
         id: data.id,
         price: priceGenerator(data.id, data.rating),
