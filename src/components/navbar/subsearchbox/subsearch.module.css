@@ -1,24 +1,33 @@
 .resultBox {
   min-width: 100%;
   position: absolute;
-  top: 50%;
-  right: -25%;
   background-color: lightgrey;
   border: 1px solid black;
   border-radius: 5px;
-}
-.resultBox:focus{
-  display: block;
+  animation: 1s slide 1 ease-out;
 }
 
-.result{
+@keyframes slide {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.result {
   display: flex;
 }
+
 .resultBody {
   display: flex;
   flex-direction: row;
 }
 
 .img {
-  max-width:  100px;
+  max-width: 100px;
 }

@@ -1,5 +1,7 @@
 .spinner {
-  border: 8px solid;
+  position: absolute;
+  right: 110%;
+  border: 6px solid;
   border-color: black black black transparent;
   border-radius: 50%;
   animation: spin 1000ms infinite linear;

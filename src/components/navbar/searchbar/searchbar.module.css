@@ -1,0 +1,29 @@
+.searchCont {
+  position: relative;
+  display: flex;
+}
+
+.resultsGroup {
+  display: flex;
+  flex-direction:row;
+}
+
+.closeBtn {
+  position: absolute;
+  left: 125%;
+  bottom: 50%;
+  font-size: .5em;
+  margin: 0 auto;
+}
+
+.row, .column {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column; 
+}

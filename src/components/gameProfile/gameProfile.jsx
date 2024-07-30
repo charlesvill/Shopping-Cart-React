@@ -1,6 +1,7 @@
 import { useParams, useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchData, priceGenerator, formatDollars } from "../utils";
+import LoadSpinner from "../loadspinner/loadspinner";
 
 export default function GameProfile() {
   const { slug } = useParams();
@@ -50,7 +51,7 @@ export default function GameProfile() {
       <h2>Hello from the gameProfile!</h2>
       <p>The game we're searching for is: {slug}</p>
       <h4>Results:</h4>
-      {loading ? <h6>Loading</h6> :
+      { loading ? <LoadSpinner /> :
         <div>
           <h6>{data.name}</h6>
           <img src={data.background_image_additional} alt={data.slug} />

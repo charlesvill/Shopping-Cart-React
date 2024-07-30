@@ -9,6 +9,11 @@
   display: flex;
 }
 
+.resultsGroup {
+  display: flex;
+  flex-direction:row;
+}
+
 .closeBtn {
   font-size: 1em;
   margin: 0 auto;
