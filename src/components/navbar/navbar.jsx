@@ -2,13 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./navbar.module.css";
 import SubSearchResult from "./subsearchbox/subsearch";
-
-const tempFn = (e) => {
-  e.preventDefault();
-
-  console.log("this is submitting a search");
-}
-
+import { formatString } from "../utils";
 
 const NavBar = () => {
   const [query, setQuery] = useState("");
@@ -18,8 +12,8 @@ const NavBar = () => {
     setShow(true);
     setQuery(e.target.value);
   }
+
   function hideResults() {
-    console.log("should be hidden rn");
     setShow(false);
   }
 
@@ -32,9 +26,7 @@ const NavBar = () => {
         </Link>
       </div>
       <div className={styles.searchCont}>
-        {/* make the on submit to call the search component */}
-        <form onSubmit={tempFn}>
-          {/* need an on change to handle the preview */}
+        <form>
           <input
             type={"text"}
             placeholder={"Search Games"}
@@ -44,7 +36,7 @@ const NavBar = () => {
         </form>
         {show && (
           <>
-            <SubSearchResult query={query} />
+            <SubSearchResult query={formatString(query)} />
             <button 
               onClick={hideResults}
               className={styles.closeBtn}

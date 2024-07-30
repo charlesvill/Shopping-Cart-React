@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { mapFeatData, fetchData } from "../utils";
 import Carousel from "./carousel/imgcarousel.jsx";
 import TopGames from "./topgames/topgames.jsx";
+import LoadSpinner from "../loadspinner/loadspinner.jsx";
 import styles from "./homepage.module.css";
 
 const featUrl = `https://api.rawg.io/api/games?key=${import.meta.env.VITE_API_KEY}&dates=2023-01-01,2024-07-20&ordering=-added&page_size=7`
@@ -34,7 +35,7 @@ const HomePage = () => {
   return (
     <div className={styles.homeCont}>
       {
-        loading ? <p>Loading....</p> :
+        loading ? <LoadSpinner /> :
           <>
             <Carousel data={carouselData} />
             <TopGames data={topData} />

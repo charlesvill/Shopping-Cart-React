@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { formatString, fetchData, priceGenerator, formatDollars } from '../../utils';
+import { fetchData, priceGenerator, formatDollars } from '../../utils';
 import styles from './subsearch.module.css';
 
 export default function SubSearchResult({ query }) {

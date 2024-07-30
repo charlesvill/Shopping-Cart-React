@@ -2,8 +2,6 @@ import { useParams, useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchData, priceGenerator, formatDollars } from "../utils";
 
-
-
 export default function GameProfile() {
   const { slug } = useParams();
   const [cart, setCart] = useOutletContext();
@@ -25,7 +23,7 @@ export default function GameProfile() {
     } catch (error) {
       throw new Error(error)
     }
-  }, []);
+  }, [slug]);
 
   function handleAdd() {
     const found = (arr, value) => {

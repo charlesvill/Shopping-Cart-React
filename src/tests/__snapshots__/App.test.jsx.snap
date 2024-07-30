@@ -1,0 +1,46 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App component > renders NavBar 1`] = `
+<div>
+  <nav
+    class="_nav_8210b0"
+  >
+    <div
+      class="logoCont"
+    >
+      <a
+        href="/"
+      >
+        <div
+          class="domainName"
+        >
+          True North Games
+        </div>
+        <div
+          class="domainLogo"
+        />
+      </a>
+    </div>
+    <div
+      class="_searchCont_8210b0"
+    >
+      <form>
+        <input
+          placeholder="Search Games"
+          type="text"
+          value=""
+        />
+      </form>
+    </div>
+    <div
+      class="cartCont"
+    >
+      <a
+        href="/cart"
+      >
+        shopping cart
+      </a>
+    </div>
+  </nav>
+</div>
+`;
