@@ -37,8 +37,9 @@ ul{
 
 .closeBtn {
   position: absolute;
-  left: 125%;
-  bottom: 50%;
+  top: 25%;
+  left: 103%;
+  align-self: flex-end;
   font-size: .5em;
   margin: 0 auto;
 }

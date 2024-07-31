@@ -2,25 +2,24 @@
 
 .resultBox {
   width: 60vw;
-  padding: 1rem;
   max-width: 900px;
-  left: -100%;
+  left: calc(100vw* -.2);
+  right: calc(100vw* -.2);
   position: absolute;
   background-color: lightgrey;
   border: 1px solid black;
   border-radius: 0px;
-  /* animation: 1s slide 1 ease-out; */
+  animation: .5s slide 1 ease-out; 
+  transform-origin: top;
 }
 
 @keyframes slide {
   from {
-    transform: translateY(-100%);
-    opacity: 0;
+    transform: scaleY(0%);
   }
 
   to {
-    transform: translateY(0%);
-    opacity: 1;
+    transform: scaleY(100%);
   }
 }
 .linkItem{
@@ -28,9 +27,16 @@
   width: 100%;
 }
 .result {
-  width: 100%;
   display: flex;
-  margin: .2em;
+  border-top: 1px solid black;
+  padding: 0 .5em 0 0 ;
+  transition: background-color .5s ease-out;
+}
+ .result:first-child {
+  border-top: none;
+}
+.result:hover {
+  background-color: grey;
 }
 
 .resultBody {
@@ -40,7 +46,17 @@
   flex-direction: row;
   color: black;
 }
+.nameWrapper {
+  padding: .5em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.nameWrapper > h5 {
+  margin: 0;
+}
 .nameWrapper > p  {
+  margin: 0; 
   font-size: .6em;
   color:var(--coffee-pot) ;
 }
@@ -49,12 +65,15 @@
 }
 .resultGroupOne{
   display: flex;
-}
-.resultGroupTwo{
-  display: grid;
   align-items: center;
 }
-
+.resultGroupTwo{
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  font-size: .8em;
+  justify-content: space-between;
+}
 
 .rating {
   color: var(--coffee-pot);
@@ -62,6 +81,17 @@
   padding: .2em;
   justify-self: flex-start;
 }
+.imgWrapper {
+  overflow: hidden;
+  width: 160px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
 .img {
-  max-width: 100px;
+  max-height: 100px;
+  width: auto;
+
 }

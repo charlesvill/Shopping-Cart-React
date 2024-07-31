@@ -18,11 +18,13 @@ export default function SubSearchResult({ data, handleHide }) {
           >
             <div className={styles.resultBody} >
               <div className={styles.resultGroupOne}>
-                <img
-                  src={element.background_image}
-                  alt={element.slug}
-                  className={styles.img}
-                />
+                <div className={styles.imgWrapper}>
+                  <img
+                    src={element.background_image}
+                    alt={element.slug}
+                    className={styles.img}
+                  />
+                </div>
                 <div className={styles.nameWrapper}>
                   <h5>{element.name}</h5>
                   <p>release: {element.released}</p>
