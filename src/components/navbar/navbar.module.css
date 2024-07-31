@@ -1,20 +1,42 @@
+@import '../../index.module.css';
+
 .nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: #202222;
+  padding: .3em;
+  position: sticky;
+  top: 0px;
 }
-
-.searchCont {
-  position: relative;
+.logoCont {
   display: flex;
-}
+  flex-direction: row;
+  font-family: "RusticRevival";
+  font-size: 2em;
+  align-items: center;
+  border-left: 2px solid var(--burgundy);
+  padding-left: .2em;
 
-.resultsGroup {
+}
+.domainTitle{
+  height: auto;
+  color: var(--pewter);
+  white-space: nowrap;
+}
+.domainLogo{
+  width: 1em;
+  fill: var(--pewter);
+}
+.cartCont {
   display: flex;
-  flex-direction:row;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: .2em;
 }
 
-.closeBtn {
-  font-size: 1em;
-  margin: 0 auto;
+.cartIcon {
+  width: 1.5em;
+  fill: white;
 }

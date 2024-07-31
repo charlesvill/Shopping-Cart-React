@@ -11,21 +11,31 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --black: #232425;
+  --burgundy: #4D0011;
+  --coffee-pot: #4B443C;
+  --pewter: #E4E5E8;
+
+}
+@font-face {
+  font-family: "RusticRevival";
+  src:
+    local("rustic-revival"),
+    url("./assets/rustic-revival.ttf");
+    font-style: normal;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
+  color: var(--pewter);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--coffee-pot);
 }
 
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }

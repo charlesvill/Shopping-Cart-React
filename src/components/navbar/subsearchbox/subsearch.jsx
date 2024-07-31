@@ -14,16 +14,24 @@ export default function SubSearchResult({ data, handleHide }) {
           <Link
             onClick={handleHide}
             to={`/games/${element.slug}`}
+            className={styles.linkItem}
           >
             <div className={styles.resultBody} >
-              <img
-                src={element.background_image}
-                alt={element.slug}
-                className={styles.img}
-              />
-              <h6>{element.name}</h6>
-              <p>{element.rating}</p>
-              <p>{formatDollars(priceGenerator(element.id, element.rating))}</p>
+              <div className={styles.resultGroupOne}>
+                <img
+                  src={element.background_image}
+                  alt={element.slug}
+                  className={styles.img}
+                />
+                <div className={styles.nameWrapper}>
+                  <h5>{element.name}</h5>
+                  <p>release: {element.released}</p>
+                </div>
+              </div>
+              <div className={styles.resultGroupTwo}>
+                <p className={styles.rating}><span className={styles.star}>★</span>{element.rating}</p>
+                <p>{formatDollars(priceGenerator(element.id, element.rating))}</p>
+              </div>
             </div>
           </Link>
         </li>
@@ -32,8 +40,8 @@ export default function SubSearchResult({ data, handleHide }) {
   }
 
   return (
-      <div className={styles.resultBox}>
-              <ul id={'dropDown'}>{<ResultList data={data} />}</ul>
-      </div>
+    <div className={styles.resultBox}>
+      <ul className={styles.dropDown}>{<ResultList data={data} />}</ul>
+    </div>
   )
 }

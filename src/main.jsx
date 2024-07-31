@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import routes from './routes.jsx'
-import './index.css'
+import './index.module.css'
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const router = createBrowserRouter(routes);

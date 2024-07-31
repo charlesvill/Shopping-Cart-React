@@ -1,11 +1,38 @@
 .searchCont {
   position: relative;
   display: flex;
+  align-items: center;
 }
 
 .resultsGroup {
   display: flex;
   flex-direction:row;
+}
+.form {
+  display: flex;
+}
+.icon {
+  position: absolute;
+  top: .8em;
+  left: 2px;
+  width: 1.5em;
+  height: auto;
+  margin-right: .2em;
+  fill: #111111;
+}
+ul{
+  padding: 0;
+  margin: 0 auto;
+}
+.input {
+  margin: 0 auto;
+  min-width: 100px;
+  border: 1px solid black;
+  border-radius: 1px;
+  height: 30px;
+  outline: none;
+  padding: 5px;
+  padding-left: 2em;
 }
 
 .closeBtn {

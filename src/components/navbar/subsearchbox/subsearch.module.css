@@ -1,10 +1,15 @@
+@import '../../../index.module.css';
+
 .resultBox {
-  min-width: 100%;
+  width: 60vw;
+  padding: 1rem;
+  max-width: 900px;
+  left: -100%;
   position: absolute;
   background-color: lightgrey;
   border: 1px solid black;
-  border-radius: 5px;
-  animation: 1s slide 1 ease-out;
+  border-radius: 0px;
+  /* animation: 1s slide 1 ease-out; */
 }
 
 @keyframes slide {
@@ -18,16 +23,45 @@
     opacity: 1;
   }
 }
-
-.result {
+.linkItem{
   display: flex;
+  width: 100%;
+}
+.result {
+  width: 100%;
+  display: flex;
+  margin: .2em;
 }
 
 .resultBody {
+  width: 100%;
+  justify-content:space-between;
   display: flex;
   flex-direction: row;
+  color: black;
+}
+.nameWrapper > p  {
+  font-size: .6em;
+  color:var(--coffee-pot) ;
+}
+.star{
+  color:red;
+}
+.resultGroupOne{
+  display: flex;
+}
+.resultGroupTwo{
+  display: grid;
+  align-items: center;
 }
 
+
+.rating {
+  color: var(--coffee-pot);
+  font-size: .6em;
+  padding: .2em;
+  justify-self: flex-start;
+}
 .img {
   max-width: 100px;
 }
