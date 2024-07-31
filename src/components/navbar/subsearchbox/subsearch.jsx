@@ -1,10 +1,32 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { priceGenerator, formatDollars } from '../../utils';
+import { priceGenerator, formatDollars, fetchData } from '../../utils';
 import styles from './subsearch.module.css';
 
-export default function SubSearchResult({ data, handleHide }) {
+export default function SubSearchResult({ query, handleHide, loading, setLoading }) {
+  const [data, setData] = useState(null);
+  const url = `https://api.rawg.io/api/games?key=${import.meta.env.VITE_API_KEY}&search=${query}&ordering=-added&page_size=6`
+
+  useEffect(() => {
+    async function getQueryResults() {
+      setLoading(true);
+      const results = await fetchData(url);
+      setData(results.results);
+      setLoading(false);
+      console.dir(results);
+    }
+
+    try {
+      getQueryResults();
+    } catch (error) {
+      throw new Error(error);
+    }
+  }, [query]);
 
   function ResultList({ data }) {
+    if (data === undefined || data === null) {
+      return <p>Loading...</p>
+    }
     return data.map(element => {
       return (
         <li
