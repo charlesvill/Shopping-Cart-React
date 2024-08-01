@@ -8,17 +8,19 @@ export default function TopGames({ data }) {
     (element) =>
       <div className={styles.game} key={element.id}>
         <Link to={`/games/${element.slug}`}>
-          <img
-            className={styles.image}
-            src={element.background_image}
-            alt={element.slug}
-          />
+          <div className={styles.frame}>
+            <img
+              className={styles.image}
+              src={element.background_image}
+              alt={element.slug}
+            />
+          </div>
+          <p><span className={styles.star}>★</span>{element.rating}</p>
+          <div>
+            <h3>{element.name}</h3>
+            <p className={styles.price}>{formatDollars(priceGenerator(element.id, element.rating))}</p>
+          </div>
         </Link>
-        <p><span className={styles.star}>★</span>{element.rating}</p>
-        <div>
-          <h3>{element.name}</h3>
-          <p className={styles.price}>{formatDollars(priceGenerator(element.id, element.rating))}</p>
-        </div>
       </div>
   );
   return (
