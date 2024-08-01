@@ -1,0 +1,14 @@
+.footer {
+  background-color: #202222;
+
+  color: black;
+  padding: 1em;
+}
+.linksCont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ghLogo {
+  width: 1em;
+}

@@ -35,13 +35,12 @@ const HomePage = () => {
   return (
     <div className={styles.homeCont}>
       {
-        loading ? <LoadSpinner /> :
+        loading ? <LoadSpinner clsName={".homePage"}/> :
           <>
             <Carousel data={carouselData} />
             <TopGames data={topData} />
           </>
       }
-      <h1>Welcome to the home page!</h1>
     </div>
     // here will go the outlet to render children simultaneously
   )

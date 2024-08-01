@@ -3,6 +3,10 @@
   display: flex;
   align-items: center;
 }
+.spinner{
+  position: absolute;
+  right: 110%;
+}
 
 .resultsGroup {
   display: flex;

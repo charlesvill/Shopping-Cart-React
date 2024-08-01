@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { formatString, fetchData } from "../../utils";
 import SubSearchResult from "../subsearchbox/subsearch";
 import LoadSpinner from '../../loadspinner/loadspinner';
@@ -8,7 +8,7 @@ import styles from "./searchbar.module.css";
 function ResultWrapper({ query, setLoading, loading, handleClose }) {
     return (
     <>
-      {loading && <LoadSpinner diameter={15} />}
+      {loading && <LoadSpinner clsName={"navBar"} diameter={15} />}
       <div className={styles.resultsGroup}>
             <SubSearchResult
               query={query}
