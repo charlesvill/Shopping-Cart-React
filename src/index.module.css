@@ -29,9 +29,7 @@ a {
   color: var(--pewter);
   text-decoration: inherit;
 }
-a:hover {
-  color: var(--coffee-pot);
-}
+
 
 body {
   margin: 0;

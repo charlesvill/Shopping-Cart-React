@@ -8,7 +8,12 @@ export default function Carousel({ data }) {
   const [position, setPosition] = useState(0);
   const carouselItems = data.map(
     (element, index) =>
-      <Link to={`/games/${element.slug}`} key={element.id}>
+      <Link
+        to={`/games/${element.slug}`}
+        key={element.id}
+        className={styles.linkCont}
+      >
+
         <img
           className={
             index === position ?
@@ -17,8 +22,23 @@ export default function Carousel({ data }) {
           }
           src={element.background_image}
           alt={element.slug}
-          
+
         />
+        <div className={
+          index === position ?
+            `${styles.carouselItem} ${styles.v}` :
+            `${styles.carouselItem} ${styles.hidden}`
+        }
+        >
+          <div className={styles.overlayWrapper}>
+            <div className={styles.overlayFilm}></div>
+            <div className={styles.overlayContent}>
+              <p className={styles.overlayTitle}>{element.name}</p>
+              <p>{Math.ceil(element.ratings[0].percent) + Math.ceil(element.ratings[1].percent)}% of players rate <em>Recommended or Exceptional</em></p>
+            </div>
+          </div>
+        </div>
+
       </Link>
   );
   function handlePrev() {
@@ -36,7 +56,7 @@ export default function Carousel({ data }) {
   return (
     <div className={styles.container}>
       <div className="frame">
-        <div className="slider">
+        <div className={styles.slider}>
           {carouselItems}
         </div>
         <div className="navBtnWrapper">

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { mapFeatData, fetchData } from "../utils";
+import { mapFeatData, fetchData, shuffle } from "../utils";
 import Carousel from "./carousel/imgcarousel.jsx";
 import TopGames from "./topgames/topgames.jsx";
 import LoadSpinner from "../loadspinner/loadspinner.jsx";
@@ -18,7 +18,7 @@ const HomePage = () => {
       setLoading(true);
       const carouselFetch = await fetchData(featUrl);
       const topFetch = await fetchData(topUrl);
-      setCarData(mapFeatData(carouselFetch.results));
+      setCarData(shuffle(mapFeatData(carouselFetch.results)));
       setTopData(mapFeatData(topFetch.results));
       console.dir(carouselFetch.results);
       console.dir(topFetch.results);

@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 
 function mapFeatData(data) {
   return data.map((element) => {
-    const { id, slug, name, rating, background_image } = element;
-    return { id, slug, name, rating, background_image };
+    const { id, slug, name, rating, background_image, ratings } = element;
+    return { id, slug, name, rating, background_image, ratings };
   });
 }
 
@@ -58,5 +58,13 @@ function formatString(string) {
   }, "");
 }
 
-export { mapFeatData, fetchData, priceGenerator, formatDollars, formatString };
+function shuffle(arr) {
+  for(let i = arr.length - 1; i >= 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+export { mapFeatData, fetchData, priceGenerator, formatDollars, formatString, shuffle };
 
