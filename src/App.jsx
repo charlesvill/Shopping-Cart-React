@@ -5,12 +5,11 @@ import NavBar from './components/navbar/navbar';
 import Footer from './components/footer/footer';
 
 function App() {
-
   const [cart, setCart] = useState([]);
 
   return (
     <>
-      <NavBar />
+      <NavBar cart={cart} />
       <Outlet context={[cart, setCart]} />
       <Footer />
     </>

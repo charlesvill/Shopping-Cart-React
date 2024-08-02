@@ -1,4 +1,37 @@
+.pageCont {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+}
 .addBtn {
   border-radius: 15px;
+  margin: .5em;
+}
+.frame {
+  max-width: 80%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image {
+  width: 100%;
+  height: auto;
 
+}
+.star {
+  color: red;
+}
+.genreCont{
+  display: flex;
+  flex-wrap: wrap;
+}
+.genreCont > p {
+  margin: 0 auto;
+}
+.genre {
+  color: darkgray;
+  margin: 0 .3rem;
 }
