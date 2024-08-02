@@ -38,7 +38,7 @@ export default function SearchBar() {
 
   return (
     <div className={styles.searchCont}>
-      <form className={styles.form}>
+      <form action={""} className={styles.form} onSubmit={(e) => e.preventDefault()}>
         <div className={styles.column}>
           <input
             type={"text"}

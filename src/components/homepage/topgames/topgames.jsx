@@ -7,7 +7,10 @@ export default function TopGames({ data }) {
   const gamesList = data.map(
     (element) =>
       <div className={styles.game} key={element.id}>
-        <Link to={`/games/${element.slug}`}>
+        <Link
+          to={`/games/${element.slug}`}
+          className={styles.linkCont}
+        >
           <div className={styles.frame}>
             <img
               className={styles.image}
@@ -15,11 +18,11 @@ export default function TopGames({ data }) {
               alt={element.slug}
             />
           </div>
-          <p><span className={styles.star}>★</span>{element.rating}</p>
           <div>
-            <h3>{element.name}</h3>
-            <p className={styles.price}>{formatDollars(priceGenerator(element.id, element.rating))}</p>
+            <p><span className={styles.star}>★</span>{element.rating}</p>
+            <h4>{element.name}</h4>
           </div>
+          <p className={styles.price}>{formatDollars(priceGenerator(element.id, element.rating))}</p>
         </Link>
       </div>
   );

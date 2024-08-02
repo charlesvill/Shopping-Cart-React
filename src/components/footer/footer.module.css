@@ -1,14 +1,24 @@
 .footer {
   background-color: #202222;
-
   color: black;
   padding: 1em;
 }
+
+.footerCont {
+  width: clamp(500px, 100%, 1280px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
 .linksCont {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .ghLogo {
   width: 1em;
 }

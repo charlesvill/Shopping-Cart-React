@@ -9,6 +9,13 @@
   position: sticky;
   top: 0px;
 }
+.navCont {
+  width: clamp(500px, 100%, 1280px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
 
 .logoCont {
   display: flex;
@@ -18,7 +25,6 @@
   align-items: center;
   border-left: 2px solid var(--burgundy);
   padding-left: .2em;
-
 }
 
 .domainTitle {

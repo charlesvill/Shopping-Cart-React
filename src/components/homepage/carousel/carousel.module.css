@@ -1,4 +1,5 @@
 
+
 .carouselItem{
   position: relative;
   max-width: 800px;
@@ -17,14 +18,15 @@
   background: linear-gradient(to top, black, transparent);
   width: 100%;
 }
-
-.overlayTitle {
-  text-align: left;
+.overlayContent > p {
   padding: .5em;
+}
+.overlayTitle {
   font-size: 2em;
   font-weight: bold;
   font-family:"sans-serif";
 }
-
-
-
+.navArrowCont {
+  display: flex;
+  justify-content: center;
+}

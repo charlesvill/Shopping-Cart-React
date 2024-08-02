@@ -16,20 +16,22 @@ export default function ShoppingCart() {
     (element) => {
       return (
         <li className={styles.cartItem} key={element.id}>
-          <img
-            src={element.image}
-            alt={element.slug}
-            className={styles.cartImg}
-          />
-          <div className={styles.sectionTwo}>
-            <div>
-              <span>{element.name}</span>
-              <span>{formatDollars(element.price)}</span>
+          <div className={styles.sectionOne}>
+            <div className={styles.frame}>
+              <img
+                src={element.image}
+                alt={element.slug}
+                className={styles.cartImg}
+              />
             </div>
+            <span>{element.name}</span>
+          </div>
+          <div className={styles.sectionTwo}>
+            <span>{formatDollars(element.price)}</span>
             <button
               onClick={() => handleRemove(element.id)}
               className={styles.btn}
-            >Remove</button>
+            >x</button>
           </div>
         </li>
       )
@@ -37,26 +39,38 @@ export default function ShoppingCart() {
   );
 
   return (
-    <>
+    <div className={styles.cartCont}>
       <h3>View your cart</h3>
-      {cart.length === 0 ? (
-        <div>
-          <h5>You havent added any games yet!</h5>
-          <Link to={"/"}>Click here to find your next adventure!</Link>
-        </div>
-      ) : (
-        <div>
-          <ul className={styles.cartCont}>
-            {cartList}
-          </ul>
-          <section>
-            <h3>Total: </h3>
-            <span>{formatDollars(total)}</span>
-          </section>
-          <Link to={"/"}>Back to home</Link>
-        </div>
-      )}
-    </>
+      <div className={styles.listCont}>
+        {cart.length === 0 ? (
+          <>
+            <h5>You havent added any games yet!</h5>
+            <Link
+              to={"/"}
+              className={styles.homeLink}
+            >Click here to find your next adventure!
+            </Link>
+          </>
+        ) : (
+          <>
+            <ul className={styles.cartList}>
+              {cartList}
+            </ul>
+            <hr className={styles.hRuler} />
+            <div className={styles.priceCont}>
+              <span className={styles.priceText}>Total: </span>
+              <span className={styles.priceText}>{formatDollars(total)}</span>
+            </div>
+            <Link
+              to={"/"}
+              className={styles.homeLink}
+            >
+              <p>Keep Shopping</p>
+            </Link>
+          </>
+        )}
+      </div>
+    </div>
   )
 }
 

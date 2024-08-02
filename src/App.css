@@ -1,12 +1,15 @@
 #root {
-  max-width: 1280px;
-  min-height: 100vh;
-  margin: 0 auto;
-  text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: space-between;
   justify-content: space-between;
-  position: relative;
+  height: 100vh;
 }
-
-
+.outletContainer{
+  width: clamp(500px, 100%, 1280px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+}

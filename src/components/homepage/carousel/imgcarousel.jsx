@@ -59,10 +59,7 @@ export default function Carousel({ data }) {
         <div className={styles.slider}>
           {carouselItems}
         </div>
-        <div className="navBtnWrapper">
-          <div className="circleNav 1" data-index="1"></div>
-        </div>
-        <div className="navArrowCont">
+        <div className={styles.navArrowCont}>
           <button className={"button-prev"} onClick={handlePrev}>{"<"}</button>
           <button className={"button-next"} onClick={handleNext}>{">"}</button>
         </div>
@@ -74,5 +71,3 @@ export default function Carousel({ data }) {
 Carousel.propTypes = {
   data: PropTypes.array,
 };
-
-

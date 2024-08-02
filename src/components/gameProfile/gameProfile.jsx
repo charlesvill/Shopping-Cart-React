@@ -63,10 +63,10 @@ export default function GameProfile() {
           <p>{data.description_raw}</p>
           <div className={styles.genreCont}>
             <p>Genres:</p>
-            {data.genres.map(element => <span className={styles.genre}>{element.name}</span>)}
+            {data.genres.map(element => <span className={styles.genre} key={element.id}>{element.name}</span>)}
           </div>
           <p>{formatDollars(priceGenerator(data.id, data.rating))}</p>
-          <button 
+          <button
             onClick={handleAdd}
             className={styles.addBtn}
           >Add to Cart</button>
