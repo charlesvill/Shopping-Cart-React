@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { fetchData, priceGenerator, formatDollars } from "../utils";
 import LoadSpinner from "../loadspinner/loadspinner";
 import styles from "./gameProfile.module.css";
+import key from "../authorization/key.js";
 
 export default function GameProfile() {
   const { slug } = useParams();
@@ -10,7 +11,7 @@ export default function GameProfile() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const url = `https://api.rawg.io/api/games/${slug}?key=${import.meta.env.VITE_API_KEY}`
+  const url = `https://api.rawg.io/api/games/${slug}?key=${key()}`
 
   useEffect(() => {
     async function dataFetch() {

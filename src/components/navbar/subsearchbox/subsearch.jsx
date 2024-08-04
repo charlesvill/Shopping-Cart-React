@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { priceGenerator, formatDollars, fetchData } from '../../utils';
 import styles from './subsearch.module.css';
+import key from "../../authorization/key.js";
 
 export default function SubSearchResult({ query, handleHide, loading, setLoading }) {
   const [data, setData] = useState(null);
-  const url = `https://api.rawg.io/api/games?key=${import.meta.env.VITE_API_KEY}&search=${query}&ordering=-added&page_size=6`
+  const url = `https://api.rawg.io/api/games?key=${key()}&search=${query}&ordering=-added&page_size=6`
 
   useEffect(() => {
     async function getQueryResults() {
