@@ -11,8 +11,8 @@ import key from "../authorization/key.js";
 //const featUrl = `https://api.rawg.io/api/games?key=${import.meta.env.VITE_API_KEY}&dates=2023-01-01,2024-07-20&ordering=-added&page_size=7`
 //const topUrl = `https://api.rawg.io/api/games?key=${import.meta.env.VITE_API_KEY}&ordering=-added&page_size=12`;
 // locally hosted needs access to api key
-const featUrl = `https://api.rawg.io/api/games?key=${key}&dates=2023-01-01,2024-07-20&ordering=-added&page_size=7`
-const topUrl = `https://api.rawg.io/api/games?key=${key}&ordering=-added&page_size=12`;
+const featUrl = `https://api.rawg.io/api/games?key=${key()}&dates=2023-01-01,2024-07-20&ordering=-added&page_size=7`
+const topUrl = `https://api.rawg.io/api/games?key=${key()}&ordering=-added&page_size=12`;
 
 const HomePage = () => {
   const [carouselData, setCarData] = useState(null);
