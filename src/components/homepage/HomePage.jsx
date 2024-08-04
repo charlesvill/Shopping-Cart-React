@@ -19,6 +19,7 @@ const HomePage = () => {
   const [topData, setTopData] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  console.log(key);
   useEffect(() => {
     async function fetchHomeData() {
       setLoading(true);
