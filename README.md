@@ -2,7 +2,7 @@ Mock Games store front with a search feature and shopping cart to review added i
 
 Utilizes React, styled components, vitest for unit testing, netflify for deployment
 
-Credit to games data and media to RAWG api 
+Credit to RAWG api for games data
 
 ### Live Preview: https://truenorthgames.netlify.app/
 
