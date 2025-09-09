@@ -5,7 +5,8 @@
 }
 
 .footerCont {
-  width: clamp(500px, 100%, 1280px);
+  width: 100%;
+  /* width: clamp(500px, 100%, 1280px); */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -21,4 +22,10 @@
 
 .ghLogo {
   width: 1em;
+}
+
+@media(max-width: 768px){
+  .footerCont{
+    font-size: .7rem;
+  }
 }

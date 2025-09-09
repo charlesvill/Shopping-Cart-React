@@ -1,21 +1,22 @@
-import styles from './footer.module.css';
-import githublogo from '../../assets/github-mark-white.png';
+import styles from "./footer.module.css";
+import githublogo from "../../assets/github-mark-white.png";
 const Footer = () => {
   return (
     <div className={styles.footer}>
       <div className={styles.footerCont}>
         <div className={"creditCont"}>
           All games data credited to
-          <a href="https://rawg.io/apidocs">
-            RAWG Video Games Database
-          </a>
+          <a href="https://rawg.io/apidocs">RAWG Video Games Database</a>
         </div>
         <div className={styles.linksCont}>
-          Charles Villalpando--
-          <span> Portfolio</span>
-          (Coming soon)--
-          <span >
+          <span>
+            <a href="https://charles-villalpando.netlify.app/">
+              Charles Portfolio 
+            </a>
+          </span>
+          <span>
             <a href="https://github.com/charlesvill?tab=repositories">
+               ---Repo
               <img className={styles.ghLogo} src={githublogo} />
             </a>
           </span>
@@ -23,6 +24,6 @@ const Footer = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Footer;

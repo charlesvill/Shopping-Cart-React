@@ -2,6 +2,9 @@
   max-width:250px;
   margin: .5em;
   border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .game:hover{
@@ -35,3 +38,16 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+/* @media (max-width: 768px){ */
+/*   .game{ */
+/*     width: 100%; */
+/*     max-width: 80%; */
+/*   } */
+/*   .frame { */
+/*     max-width: 80%; */
+/*   } */
+/*   .image { */
+/*     max-height: auto; */
+/*     width: 100%; */
+/*   } */
+/* } */

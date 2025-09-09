@@ -8,6 +8,7 @@
   padding: .3em;
   position: sticky;
   top: 0px;
+  height: fit-content;
 }
 .navCont {
   width: clamp(500px, 100%, 1280px);
@@ -86,4 +87,9 @@
 
 .cartNotification {
   margin: 0px 5px;
+}
+@media (max-width: 768px){
+  .nav{
+    /* position: fixed; */
+  }
 }

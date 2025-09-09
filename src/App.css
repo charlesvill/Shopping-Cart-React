@@ -3,10 +3,10 @@
   flex-direction: column;
   align-items: space-between;
   justify-content: space-between;
-  height: 100vh;
+  /* height: 100vh; */
 }
 .outletContainer{
-  width: clamp(500px, 100%, 1280px);
+  width: clamp(400px, 100%, 1280px);
   display: flex;
   flex-direction: column;
   justify-content: center;

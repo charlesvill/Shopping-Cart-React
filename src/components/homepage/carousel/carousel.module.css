@@ -30,3 +30,17 @@
   display: flex;
   justify-content: center;
 }
+
+@media (max-width: 1024px){
+  .carouselItem{
+    width: 100%;
+  }
+}
+
+@media (max-width: 430px){
+  .carouselItem{
+    max-width: 400px;
+  }
+}
+
+
