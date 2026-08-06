@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 
+
 function mapFeatData(data) {
   return data.map((element) => {
     const { id, slug, name, rating, background_image, ratings } = element;
@@ -11,18 +12,49 @@ mapFeatData.propTypes = {
   data: PropTypes.array,
 };
 
-async function fetchData(url) {
-  try {
-    const response = await fetch(url, { mode: "cors" });
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    const json = await response.json();
-    return json;
-  } catch (err) {
-    console.error((err));
-    return err;
-  }
+// old fetch helper
+//
+//
+//
+// async function fetchData(url) {
+//   try {
+//     const response = await fetch(url, { mode: "cors" });
+//     if (!response.ok) {
+//       throw new Error(response.status);
+//     }
+//     const json = await response.json();
+//     return json;
+//   } catch (err) {
+//     console.error((err));
+//     return err;
+//   }
+// }
+
+
+// new fetch helper
+//
+
+
+function fetchData(fields){
+  const clientId = import.meta.env.VITE_API_ID;
+
+  fetch(
+// update with api endpoint
+  // "/* https://api.igdb.com/v4/games */",
+  { method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Client-ID': 'Client ID',
+      'Authorization': 'Bearer access_token',
+    },
+    body: `${fields}`
+})
+  .then(response => {
+      console.log(response.json());
+  })
+  .catch(err => {
+      console.error(err);
+  });
 }
 
 function priceGenerator(gameId, rating) {

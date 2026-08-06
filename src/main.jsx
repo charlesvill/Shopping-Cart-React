@@ -4,7 +4,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import routes from './routes.jsx'
 import './index.module.css'
 
-const apiKey = import.meta.env.VITE_API_KEY;
 const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
