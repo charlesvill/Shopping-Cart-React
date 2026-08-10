@@ -22,12 +22,23 @@ function ResultWrapper({ query, setLoading, loading, handleClose }) {
 // need to sort out where the use effect and fetch request will live
 export default function SearchBar() {
   const [loading, setLoading] = useState(true);
+  const [locked, setLock] = useState(false);
   const [formValue, setValue] = useState("");
   const [query, setQuery] = useState("");
   const [show, setShow] = useState(false);
+  // miliseconds to delay setting query for input change
+  const qDelay = 500;
 
   useEffect(() => {
-    setQuery(formatString(formValue));
+    // lock during delay to avoid unncecessary timeouts
+    if (locked) {
+      return;
+    }
+    setLocked(true);
+    setTimeout(() => {
+      setQuery(formatString(formValue));
+      setLocked(false);
+    }, qDelay);
   }, [formValue]);
 
   function handleClose() {

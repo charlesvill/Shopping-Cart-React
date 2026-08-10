@@ -4,15 +4,9 @@ import Carousel from "./carousel/imgcarousel.jsx";
 import TopGames from "./topgames/topgames.jsx";
 import LoadSpinner from "../loadspinner/loadspinner.jsx";
 import styles from "./homepage.module.css";
-import key from "../authorization/key.js";
-//local hosting will need to comment out key import
 
-
-//const featUrl = `https://api.rawg.io/api/games?key=${import.meta.env.VITE_API_KEY}&dates=2023-01-01,2024-07-20&ordering=-added&page_size=7`
-//const topUrl = `https://api.rawg.io/api/games?key=${import.meta.env.VITE_API_KEY}&ordering=-added&page_size=12`;
-// locally hosted needs access to api key
-const featUrl = `https://api.rawg.io/api/games?key=${key()}&dates=2023-01-01,2024-07-20&ordering=-added&page_size=7`
-const topUrl = `https://api.rawg.io/api/games?key=${key()}&ordering=-added&page_size=12`;
+const featUrl = `${import.meta.env.BASE_URL}/games/featured`;
+const topUrl = `${import.meta.env.BASE_URL}/games/goat`;
 
 const HomePage = () => {
   const [carouselData, setCarData] = useState(null);
@@ -24,11 +18,11 @@ const HomePage = () => {
       setLoading(true);
       const carouselFetch = await fetchData(featUrl);
       const topFetch = await fetchData(topUrl);
-      const processedData = shuffle(mapFeatData(carouselFetch.results));
+      const processedData = shuffle(mapFeatData(carouselFetch));
       setCarData(processedData);
-      setTopData(mapFeatData(topFetch.results));
-      console.dir(carouselFetch.results);
-      console.dir(topFetch.results);
+      setTopData(mapFeatData(topFetch));
+      console.dir(carouselFetch);
+      console.dir(topFetch);
       setLoading(false);
     }
 
@@ -41,16 +35,17 @@ const HomePage = () => {
 
   return (
     <div className={styles.homeCont}>
-      {
-        loading ? <LoadSpinner clsName={".homePage"}/> :
-          <>
-            <Carousel data={carouselData} />
-            <TopGames data={topData} />
-          </>
-      }
+      {loading ? (
+        <LoadSpinner clsName={".homePage"} />
+      ) : (
+        <>
+          <Carousel data={carouselData} />
+          <TopGames data={topData} />
+        </>
+      )}
     </div>
     // here will go the outlet to render children simultaneously
-  )
-}
+  );
+};
 
 export default HomePage;

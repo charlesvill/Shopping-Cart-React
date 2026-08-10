@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 function mapFeatData(data) {
   return data.map((element) => {
@@ -10,30 +10,44 @@ function mapFeatData(data) {
 mapFeatData.propTypes = {
   data: PropTypes.array,
 };
+fetch("https://api.igdb.com/v4/external_game_sources", {
+  method: "POST",
+  headers: {
+    Accept: "application/json",
+    "Client-ID": "Client ID",
+    Authorization: "Bearer access_token",
+  },
+  body: "fields checksum,created_at,name,updated_at;",
+});
 
 async function fetchData(url) {
   try {
-    const response = await fetch(url, { mode: "cors" });
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "X-API-Key": "4KHJKGLKDJLljklkyehdkxhbxbbxhgdjfUU",
+      },
+    });
     if (!response.ok) {
       throw new Error(response.status);
     }
     const json = await response.json();
     return json;
   } catch (err) {
-    console.error((err));
+    console.error(err);
     return err;
   }
 }
 
 function priceGenerator(gameId, rating) {
-  const base = ((gameId % 9) + 1.5);
+  const base = (gameId % 9) + 1.5;
   return base * rating;
 }
 
 function formatDollars(number) {
-  let USDollar = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  let USDollar = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
   });
   return USDollar.format(number);
 }
@@ -50,7 +64,7 @@ function formatString(string) {
       value !== "?" &&
       value !== "&" &&
       value !== "#" &&
-      value !== "." 
+      value !== "."
     ) {
       return acc + value;
     }
@@ -59,12 +73,18 @@ function formatString(string) {
 }
 
 function shuffle(arr) {
-  for(let i = arr.length - 1; i >= 0; i--){
+  for (let i = arr.length - 1; i >= 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return arr;
 }
 
-export { mapFeatData, fetchData, priceGenerator, formatDollars, formatString, shuffle };
-
+export {
+  mapFeatData,
+  fetchData,
+  priceGenerator,
+  formatDollars,
+  formatString,
+  shuffle,
+};
