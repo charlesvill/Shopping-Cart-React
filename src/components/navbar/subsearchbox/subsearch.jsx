@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { priceGenerator, formatDollars, fetchData } from "../../utils";
 import styles from "./subsearch.module.css";
-import key from "../../authorization/key.js";
 
 export default function SubSearchResult({
   query,
@@ -11,7 +10,7 @@ export default function SubSearchResult({
   setLoading,
 }) {
   const [data, setData] = useState(null);
-  const url = `${import.meta.env.BASE_URL}/search?=${query}/`;
+  const url = `${import.meta.env.VITE_BASE_URL}/search?=${query}/`;
 
   useEffect(() => {
     async function getQueryResults() {

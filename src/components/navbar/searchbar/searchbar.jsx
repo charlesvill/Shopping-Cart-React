@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { formatString, fetchData } from "../../utils";
+import { formatString } from "../../utils";
 import SubSearchResult from "../subsearchbox/subsearch";
 import LoadSpinner from "../../loadspinner/loadspinner";
 import styles from "./searchbar.module.css";
@@ -34,10 +34,10 @@ export default function SearchBar() {
     if (locked) {
       return;
     }
-    setLocked(true);
+    setLock(true);
     setTimeout(() => {
       setQuery(formatString(formValue));
-      setLocked(false);
+      setLock(false);
     }, qDelay);
   }, [formValue]);
 

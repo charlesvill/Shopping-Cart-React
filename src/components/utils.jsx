@@ -10,15 +10,6 @@ function mapFeatData(data) {
 mapFeatData.propTypes = {
   data: PropTypes.array,
 };
-fetch("https://api.igdb.com/v4/external_game_sources", {
-  method: "POST",
-  headers: {
-    Accept: "application/json",
-    "Client-ID": "Client ID",
-    Authorization: "Bearer access_token",
-  },
-  body: "fields checksum,created_at,name,updated_at;",
-});
 
 async function fetchData(url) {
   try {

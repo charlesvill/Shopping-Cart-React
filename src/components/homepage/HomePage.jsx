@@ -5,8 +5,8 @@ import TopGames from "./topgames/topgames.jsx";
 import LoadSpinner from "../loadspinner/loadspinner.jsx";
 import styles from "./homepage.module.css";
 
-const featUrl = `${import.meta.env.BASE_URL}/games/featured`;
-const topUrl = `${import.meta.env.BASE_URL}/games/goat`;
+const featUrl = `${import.meta.env.VITE_BASE_URL}/games/featured`;
+const topUrl = `${import.meta.env.VITE_BASE_URL}/games/goat`;
 
 const HomePage = () => {
   const [carouselData, setCarData] = useState(null);
