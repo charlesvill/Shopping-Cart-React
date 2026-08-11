@@ -17,7 +17,7 @@ export default function Carousel({ data }) {
             ? `${styles.carouselItem} ${styles.v}`
             : `${styles.carouselItem} ${styles.hidden}`
         }
-        src={`https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${element.cover.image_id}.jpg`}
+        src={`https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${element?.cover?.image_id}.jpg`}
         alt={element.slug}
       />
       <div
@@ -32,7 +32,7 @@ export default function Carousel({ data }) {
           <div className={styles.overlayContent}>
             <p className={styles.overlayTitle}>{element.name}</p>
             <p>
-              {Math.Round(element.rating)} % of players rate{" "}
+              {Math.round(element.rating)} % of players rate{" "}
               <em>Recommended or Exceptional</em>
             </p>
           </div>

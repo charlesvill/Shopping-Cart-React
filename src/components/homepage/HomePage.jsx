@@ -18,9 +18,11 @@ const HomePage = () => {
       setLoading(true);
       const carouselFetch = await fetchData(featUrl);
       const topFetch = await fetchData(topUrl);
-      const processedData = shuffle(mapFeatData(carouselFetch));
-      setCarData(processedData);
-      setTopData(mapFeatData(topFetch));
+      // const processedData = shuffle(mapFeatData(carouselFetch));
+      // setCarData(processedData);
+      // setTopData(mapFeatData(topFetch));
+      setCarData(carouselFetch);
+      setTopData(topFetch);
       console.dir(carouselFetch);
       console.dir(topFetch);
       setLoading(false);
