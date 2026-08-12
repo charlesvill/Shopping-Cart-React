@@ -1,10 +1,11 @@
+
 .game{
-  max-width:250px;
+  max-width:200px;
   margin: .5em;
   border: 1px solid black;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: space-between;
 }
 
 .game:hover{
@@ -16,16 +17,16 @@
 }
 
 .frame{
-  width: 250px;
-  max-height: 150px;
+  max-width: 200px;
+  max-height: 200px;
   background-color:black;
   overflow: hidden;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 .image{
-  max-height: 150px;
+  overflow: hidden;
 }
 .star {
   color: red;

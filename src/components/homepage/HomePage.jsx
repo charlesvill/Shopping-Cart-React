@@ -18,9 +18,6 @@ const HomePage = () => {
       setLoading(true);
       const carouselFetch = await fetchData(featUrl);
       const topFetch = await fetchData(topUrl);
-      // const processedData = shuffle(mapFeatData(carouselFetch));
-      // setCarData(processedData);
-      // setTopData(mapFeatData(topFetch));
       setCarData(carouselFetch);
       setTopData(topFetch);
       console.dir(carouselFetch);
@@ -46,7 +43,6 @@ const HomePage = () => {
         </>
       )}
     </div>
-    // here will go the outlet to render children simultaneously
   );
 };
 

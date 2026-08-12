@@ -17,7 +17,7 @@ export default function Carousel({ data }) {
             ? `${styles.carouselItem} ${styles.v}`
             : `${styles.carouselItem} ${styles.hidden}`
         }
-        src={`https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${element?.cover?.image_id}.jpg`}
+        src={`https://images.igdb.com/igdb/image/upload/t_screenshot_big/${element?.artworks[0]?.image_id}.jpg`}
         alt={element.slug}
       />
       <div
@@ -35,6 +35,25 @@ export default function Carousel({ data }) {
               {Math.round(element.rating)} % of players rate{" "}
               <em>Recommended or Exceptional</em>
             </p>
+          </div>
+        </div>
+
+        <div className={styles.rightOverlayWrapper}>
+          <div className={styles.rightOverlayContent}>
+            <div className={styles.rightImageCont}>
+              {element.screenshots.map((image, index) => {
+                if (index >= 4) {
+                  return;
+                }
+                return (
+                  <img
+                    className={styles.screenshotImg}
+                    key={image.id}
+                    src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med/${image.image_id}.jpg`}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

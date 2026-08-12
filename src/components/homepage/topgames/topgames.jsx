@@ -6,19 +6,18 @@ import { Link } from "react-router-dom";
 export default function TopGames({ data }) {
   const gamesList = data.map((element) => (
     <div className={styles.game} key={element.id}>
-      {console.log("element: ", element)}
       <Link to={`/games/${element.slug}`} className={styles.linkCont}>
         <div className={styles.frame}>
           <img
             className={styles.image}
-            src={`https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${element?.cover?.image_id}.jpg`}
+            src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${element?.cover?.image_id}.jpg`}
             alt={element.slug}
           />
         </div>
         <div>
           <p>
             <span className={styles.star}>★</span>
-            {element.rating}
+            {Math.ceil(element.rating)}
           </p>
           <h4>{element.name}</h4>
         </div>

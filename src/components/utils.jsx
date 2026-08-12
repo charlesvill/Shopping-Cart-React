@@ -13,6 +13,7 @@ mapFeatData.propTypes = {
 
 async function fetchData(url) {
   try {
+    const start = performance.now();
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -23,6 +24,8 @@ async function fetchData(url) {
       throw new Error(response.status);
     }
     const json = await response.json();
+    const end = performance.now();
+    console.log("fetch time: ", (end - start).toFixed(2), " ms");
     return json;
   } catch (err) {
     console.error(err);

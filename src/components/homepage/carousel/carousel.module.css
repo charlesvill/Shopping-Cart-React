@@ -1,6 +1,4 @@
-
-
-.carouselItem{
+.carouselItem {
   position: relative;
   max-width: 800px;
   height: auto;
@@ -19,28 +17,42 @@
   width: 100%;
 }
 .overlayContent > p {
-  padding: .5em;
+  padding: 0.5em;
 }
 .overlayTitle {
   font-size: 2em;
   font-weight: bold;
-  font-family:"sans-serif";
+  font-family: "sans-serif";
+}
+.rightOverlayWrapper {
+  position: absolute;
+  right: -0%;
+  top: -50%;
+  background: linear-gradient(to right, black, transparent);
+  height: 100%;
+}
+.rightOverlayContent {
+}
+.rightImageCont {
+  max-width: 250px;
+  height: auto;
+}
+.screenshotImg {
+  max-width: 250px;
 }
 .navArrowCont {
   display: flex;
   justify-content: center;
 }
 
-@media (max-width: 1024px){
-  .carouselItem{
+@media (max-width: 1024px) {
+  .carouselItem {
     width: 100%;
   }
 }
 
-@media (max-width: 430px){
-  .carouselItem{
+@media (max-width: 430px) {
+  .carouselItem {
     max-width: 400px;
   }
 }
-
-
