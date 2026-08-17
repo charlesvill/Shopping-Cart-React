@@ -10,17 +10,21 @@ export default function SubSearchResult({
   setLoading,
 }) {
   const [data, setData] = useState(null);
-  const url = `${import.meta.env.VITE_BASE_URL}/search?=${query}/`;
+  const url = `${import.meta.env.VITE_BASE_URL}/games/search?query=${query}`;
 
   useEffect(() => {
     async function getQueryResults() {
       setLoading(true);
+
+      console.log("search url: ", url);
+      if (!query) {
+        return;
+      }
       const results = await fetchData(url);
       setData(results);
       setLoading(false);
       console.dir(results);
     }
-
     try {
       getQueryResults();
     } catch (error) {
@@ -37,27 +41,32 @@ export default function SubSearchResult({
         <li className={styles.result} key={element.id}>
           <Link
             onClick={handleHide}
-            to={`/games/${element.slug}`}
+            to={`/games/${element.id}`}
             className={styles.linkItem}
           >
             <div className={styles.resultBody}>
               <div className={styles.resultGroupOne}>
                 <div className={styles.imgWrapper}>
                   <img
-                    src={`https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${element.cover.image_id}.jpg`}
+                    src={`https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${element?.cover?.image_id}.jpg`}
                     alt={element.slug}
                     className={styles.img}
                   />
                 </div>
                 <div className={styles.nameWrapper}>
                   <h5>{element.name}</h5>
-                  <p>release: {element.first_release_date}</p>
+                  <p>
+                    release:{" "}
+                    {new Date(
+                      element.first_release_date * 1000,
+                    ).toLocaleDateString("en-US")}
+                  </p>
                 </div>
               </div>
               <div className={styles.resultGroupTwo}>
                 <p className={styles.rating}>
                   <span className={styles.star}>★</span>
-                  {element.rating}
+                  {Math.round(element.rating)}
                 </p>
                 <p>
                   {formatDollars(priceGenerator(element.id, element.rating))}

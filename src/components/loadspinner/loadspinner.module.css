@@ -3,10 +3,10 @@
   border-color: black black black transparent;
   border-radius: 50%;
   animation: spin 1000ms infinite linear;
-}
-.navBar{
+
   position: absolute;
   right: 110%;
+  top: 20%;
 }
 .homePage{
   align-self:center;

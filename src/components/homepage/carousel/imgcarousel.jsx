@@ -7,54 +7,55 @@ export default function Carousel({ data }) {
   const [position, setPosition] = useState(0);
   const carouselItems = data.map((element, index) => (
     <Link
-      to={`/games/${element.slug}`}
+      to={`/games/${element.id}`}
       key={element.id}
-      className={styles.linkCont}
+      className={
+        index === position
+          ? `${styles.linkCont} ${styles.v}`
+          : `${styles.linkCont} ${styles.hidden}`
+      }
     >
-      <img
-        className={
-          index === position
-            ? `${styles.carouselItem} ${styles.v}`
-            : `${styles.carouselItem} ${styles.hidden}`
-        }
-        src={`https://images.igdb.com/igdb/image/upload/t_screenshot_big/${element?.artworks[0]?.image_id}.jpg`}
-        alt={element.slug}
-      />
-      <div
-        className={
-          index === position
-            ? `${styles.carouselItem} ${styles.v}`
-            : `${styles.carouselItem} ${styles.hidden}`
-        }
-      >
+      {/* Main wallpaper */}
+      <div className={styles.wallpaperContainer}>
+        <img
+          className={styles.carouselItem}
+          src={`https://images.igdb.com/igdb/image/upload/t_screenshot_huge/${element?.artworks[0]?.image_id}.jpg`}
+          alt={element.name}
+        />
+
+        {/* Text overlay */}
         <div className={styles.overlayWrapper}>
           <div className={styles.overlayFilm}></div>
+
           <div className={styles.overlayContent}>
             <p className={styles.overlayTitle}>{element.name}</p>
+
             <p>
-              {Math.round(element.rating)} % of players rate{" "}
+              {Math.round(element.rating)}% of players rate{" "}
               <em>Recommended or Exceptional</em>
             </p>
           </div>
         </div>
+      </div>
 
-        <div className={styles.rightOverlayWrapper}>
-          <div className={styles.rightOverlayContent}>
-            <div className={styles.rightImageCont}>
-              {element.screenshots.map((image, index) => {
-                if (index >= 4) {
-                  return;
-                }
-                return (
-                  <img
-                    className={styles.screenshotImg}
-                    key={image.id}
-                    src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med/${image.image_id}.jpg`}
-                  />
-                );
-              })}
-            </div>
-          </div>
+      {/* Screenshot panel */}
+      <div className={styles.rightOverlayWrapper}>
+        {/* Blurred copy of wallpaper */}
+        <img
+          className={styles.rightBackground}
+          src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med/${element?.artworks[0]?.image_id}.jpg`}
+          alt=""
+        />
+
+        <div className={styles.rightOverlayContent}>
+          {element.screenshots.slice(0, 4).map((image) => (
+            <img
+              className={styles.screenshotImg}
+              key={image.id}
+              src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med/${image.image_id}.jpg`}
+              alt=""
+            />
+          ))}
         </div>
       </div>
     </Link>

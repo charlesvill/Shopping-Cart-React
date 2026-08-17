@@ -8,6 +8,7 @@ import styles from "./homepage.module.css";
 const featUrl = `${import.meta.env.VITE_BASE_URL}/games/featured`;
 const topUrl = `${import.meta.env.VITE_BASE_URL}/games/goat`;
 
+console.log("proxy server url: ", featUrl);
 const HomePage = () => {
   const [carouselData, setCarData] = useState(null);
   const [topData, setTopData] = useState(null);

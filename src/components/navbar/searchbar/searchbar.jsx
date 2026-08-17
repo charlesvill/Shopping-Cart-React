@@ -7,7 +7,7 @@ import styles from "./searchbar.module.css";
 function ResultWrapper({ query, setLoading, loading, handleClose }) {
   return (
     <>
-      {loading && <LoadSpinner clsName={"navBar"} diameter={15} />}
+      {loading && <LoadSpinner className={"navBar"} diameter={15} />}
       <div className={styles.resultsGroup}>
         <SubSearchResult
           query={query}
@@ -22,23 +22,22 @@ function ResultWrapper({ query, setLoading, loading, handleClose }) {
 // need to sort out where the use effect and fetch request will live
 export default function SearchBar() {
   const [loading, setLoading] = useState(true);
-  const [locked, setLock] = useState(false);
   const [formValue, setValue] = useState("");
   const [query, setQuery] = useState("");
   const [show, setShow] = useState(false);
   // miliseconds to delay setting query for input change
-  const qDelay = 500;
+  const qDelay = 700;
 
   useEffect(() => {
-    // lock during delay to avoid unncecessary timeouts
-    if (locked) {
-      return;
-    }
-    setLock(true);
-    setTimeout(() => {
-      setQuery(formatString(formValue));
-      setLock(false);
+    const timeout = setTimeout(() => {
+      if (formValue.length <= 1) {
+        return;
+      }
+      setQuery(formValue);
     }, qDelay);
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [formValue]);
 
   function handleClose() {

@@ -34,7 +34,6 @@ h3 {
   margin: 1em;
 }
 .frame {
-  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;

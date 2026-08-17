@@ -6,23 +6,24 @@ import GameProfile from "./components/gameProfile/gameProfile";
 
 const routes = [
   {
-    path: "/", 
+    path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        index: true, element: <HomePage />
+        index: true,
+        element: <HomePage />,
       },
       {
-        path: "cart", 
+        path: "cart",
         element: <ShoppingCart />,
-      }, 
+      },
       {
-        path: "games/:slug",
+        path: "games/:gameId",
         element: <GameProfile />,
       },
     ],
-  }, 
+  },
 ];
 
 export default routes;
