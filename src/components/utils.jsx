@@ -34,8 +34,9 @@ async function fetchData(url) {
 }
 
 function priceGenerator(gameId, rating) {
-  const base = (gameId % 9) + 1.5;
-  return base * rating;
+  const base = ((gameId / 100) % 9) + 3;
+
+  return base * ((rating % 9) + 0.5);
 }
 
 function formatDollars(number) {

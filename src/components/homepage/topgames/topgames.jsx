@@ -22,7 +22,7 @@ export default function TopGames({ data }) {
           <h4>{element.name}</h4>
         </div>
         <p className={styles.price}>
-          {formatDollars(priceGenerator(element.id, element.rating))}
+          {formatDollars(priceGenerator(element.id, Math.floor(element.rating)))}
         </p>
       </Link>
     </div>

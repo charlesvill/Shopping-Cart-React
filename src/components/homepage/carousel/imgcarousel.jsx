@@ -43,7 +43,7 @@ export default function Carousel({ data }) {
     {/* Blurred copy of wallpaper */}
     <img
       className={styles.rightBackground}
-      src={`https://images.igdb.com/igdb/image/upload/t_screenshot_huge/${element?.artworks[0]?.image_id}.jpg`}
+      src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med/${element?.artworks[0]?.image_id}.jpg`}
       alt=""
     />
 

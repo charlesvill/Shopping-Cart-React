@@ -1,16 +1,17 @@
-@import '../../../index.module.css';
+@import "../../../index.module.css";
 
 .resultBox {
   width: 60vw;
   max-width: 900px;
-  left: calc(100vw* -.2);
-  right: calc(100vw* -.2);
+  left: calc(100vw * -0.2);
+  right: calc(100vw * -0.2);
   position: absolute;
   background-color: lightgrey;
   border: 1px solid black;
   border-radius: 0px;
-  animation: .5s slide 1 ease-out; 
+  animation: 0.5s slide 1 ease-out;
   transform-origin: top;
+  z-index: 100;
 }
 
 @keyframes slide {
@@ -22,17 +23,17 @@
     transform: scaleY(100%);
   }
 }
-.linkItem{
+.linkItem {
   display: flex;
   width: 100%;
 }
 .result {
   display: flex;
   border-top: 1px solid black;
-  padding: 0 .5em 0 0 ;
-  transition: background-color .5s ease-out;
+  padding: 0 0.5em 0 0;
+  transition: background-color 0.5s ease-out;
 }
- .result:first-child {
+.result:first-child {
   border-top: none;
 }
 .result:hover {
@@ -41,13 +42,13 @@
 
 .resultBody {
   width: 100%;
-  justify-content:space-between;
+  justify-content: space-between;
   display: flex;
   flex-direction: row;
   color: black;
 }
 .nameWrapper {
-  padding: .5em;
+  padding: 0.5em;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -55,35 +56,36 @@
 .nameWrapper > h5 {
   margin: 0;
 }
-.nameWrapper > p  {
-  margin: 0; 
-  font-size: .6em;
-  color:var(--coffee-pot) ;
+.nameWrapper > p {
+  margin: 0;
+  font-size: 0.6em;
+  color: var(--coffee-pot);
 }
-.star{
-  color:red;
+.star {
+  color: red;
 }
-.resultGroupOne{
+.resultGroupOne {
   display: flex;
   align-items: center;
 }
-.resultGroupTwo{
+.resultGroupTwo {
   display: flex;
   gap: 1em;
   align-items: center;
-  font-size: .8em;
+  font-size: 0.8em;
   justify-content: space-between;
 }
 
 .rating {
   color: var(--coffee-pot);
-  font-size: .6em;
-  padding: .2em;
+  font-size: 0.6em;
+  padding: 0.2em;
   justify-self: flex-start;
 }
 .imgWrapper {
   overflow: hidden;
-  width: 160px;
+
+  padding: 0.3em;
   height: auto;
   display: flex;
   align-items: center;
@@ -93,5 +95,4 @@
 .img {
   max-height: 100px;
   width: auto;
-
 }
