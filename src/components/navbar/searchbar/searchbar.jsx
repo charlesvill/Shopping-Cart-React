@@ -30,6 +30,9 @@ export default function SearchBar() {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
+      if (formValue.length <= 1) {
+        return;
+      }
       setQuery(formValue);
     }, qDelay);
     return () => {

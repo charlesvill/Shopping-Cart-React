@@ -41,7 +41,7 @@ export default function SubSearchResult({
         <li className={styles.result} key={element.id}>
           <Link
             onClick={handleHide}
-            to={`/games/${element.slug}`}
+            to={`/games/${element.id}`}
             className={styles.linkItem}
           >
             <div className={styles.resultBody}>
